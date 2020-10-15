@@ -45,17 +45,3 @@ spec:
           #       secretKeyRef:
           #         name: post-secret
           #         key: spring.datasource.password
-          volumeMounts:
-            - mountPath: /flyway/conf
-              name: flyway-conf
-            - mountPath: /flyway/sql
-              name: flyway-sql
-      volumes:
-        - name: flyway-conf
-          nfs:
-            server: {{ .Values.nfs.server }}
-            path: {{ .Values.nfs.confPath }}
-        - name: flyway-sql
-          nfs:
-            server: {{ .Values.nfs.server }}
-            path: {{ .Values.nfs.sqlPath }}
